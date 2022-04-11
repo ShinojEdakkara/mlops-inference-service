@@ -7,6 +7,11 @@ jobs:
     - uses: actions/checkout@v1
       name: Checkout Repo
 
+    - name: Download the Model PKL
+      run: |
+        az version
+      shell: bash
+
     - name: azure login
       uses: azure/login@v1
       with:
