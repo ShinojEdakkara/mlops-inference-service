@@ -1,0 +1,23 @@
+name: run-script
+on: push
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+      name: Checkout Repo
+
+    - name: azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+
+    - name: Download the Model PKL
+      run: |
+        az extension add -n azure-cli-ml
+        az ml model download -i portodrivermodel:1 --resource-group szgroup --workspace-name szmlworkspace -t .
+      shell: bash
+
+    - name: Build the tagged Docker image
+      run: |
+        docker build . --file Dockerfile --tag mlops:latest
