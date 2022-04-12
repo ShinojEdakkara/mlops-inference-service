@@ -14,16 +14,13 @@ jobs:
 
     - name: ls before
       run: |
-        pwd
-        ls
-        tree
+        sudo mkdir /demo
       shell: bash
 
     - name: Download the Model PKL
       run: |
         az extension add -n azure-cli-ml
-        az ml model download -i portodrivermodel:1 --resource-group szgroup --workspace-name szmlworkspace -t /home/app
-        ls /home/app
+        az ml model download -i portodrivermodel:1 --resource-group szgroup --workspace-name szmlworkspace -t /demo
         pwd
       shell: bash
 
