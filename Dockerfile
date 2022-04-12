@@ -3,13 +3,14 @@
 
 FROM mcr.microsoft.com/azureml/sklearn-0.24.1-ubuntu18.04-py37-cpu-inference:latest
 
+RUN ls && pwd
 # 
 WORKDIR /code
 
 # 
 COPY ./requirements.txt /code/requirements.txt
 
-RUN ls
+RUN ls && pwd
 
 # COPY porto_seguro_safe_driver_model.pkl /code/app
 
