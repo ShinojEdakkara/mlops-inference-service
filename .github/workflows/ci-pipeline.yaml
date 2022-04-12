@@ -29,5 +29,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         tags: |
-          ghcr.io/retaildevcrews/mlops-inference:${{ github.sha }}
+          ghcr.io/mlops-inference-service/mlops-inference:${{ github.sha }}
         push: true
