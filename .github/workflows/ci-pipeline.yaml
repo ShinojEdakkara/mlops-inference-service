@@ -44,4 +44,5 @@ jobs:
       with:
         tags: |
           ghcr.io/shinojedakkara/mlops-inference-service:${{ github.sha }}
+        context: .
         push: true
