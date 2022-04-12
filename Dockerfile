@@ -11,8 +11,6 @@ WORKDIR /code
 # 
 COPY ./requirements.txt /code/requirements.txt
 
-RUN tree
-
 RUN ls && pwd
 
 # 
