@@ -35,8 +35,6 @@ def predict_score(data):
     score = run(data)
     return score
 
-
-
 def run(raw_data):
     model_path = Model.get_model_path(
         model_name="app/porto_seguro_safe_driver_model.pkl")
