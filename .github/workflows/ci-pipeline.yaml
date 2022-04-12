@@ -22,12 +22,12 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: ghcr.io
-        username: ${{ github.actor }}
+        username: ${{ github.repository_owner }}
         password: ${{ secrets.GHCR_PAT }}
 
     - name: Build image and push to GitHub Container Registry
       uses: docker/build-push-action@v2
       with:
         tags: |
-          ghcr.io/mlops-inference-service/mlops-inference:${{ github.sha }}
+          ghcr.io/ShinojEdakkara/mlops-inference-service:${{ github.sha }}
         push: true
