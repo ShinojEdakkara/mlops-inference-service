@@ -20,7 +20,7 @@ jobs:
     - name: Download the Model PKL
       run: |
         az extension add -n azure-cli-ml
-        az ml model download -i portodrivermodel:1 --resource-group szgroup --workspace-name szmlworkspace -t /demo
+        az ml model download -i portodrivermodel:1 --resource-group szgroup --workspace-name szmlworkspace -t .
         pwd
       shell: bash
 

@@ -4,7 +4,7 @@
 FROM mcr.microsoft.com/azureml/sklearn-0.24.1-ubuntu18.04-py37-cpu-inference:latest
 
 RUN ls && pwd
-
+USER root
 # 
 WORKDIR /code
 
@@ -18,7 +18,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # 
 COPY ./app /code/app
-COPY /demo/porto_seguro_safe_driver_model.pkl /code/app
+COPY porto_seguro_safe_driver_model.pkl /code/app/
 
 RUN ls app && pwd
 
