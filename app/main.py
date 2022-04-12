@@ -37,16 +37,6 @@ def predict_score(data):
 
 
 
-def init():
-    global model
-    # AZUREML_MODEL_DIR is an environment variable created during deployment.
-    # It's the path to the model folder (./azureml-models/$MODEL_NAME/$VERSION).
-    # For multiple models, it points to the folder containing all deployed models (./azureml-models).
-    model_path = Model.get_model_path(
-        model_name="porto_seguro_safe_driver_model.pkl")
-
-    model = joblib.load(model_path)
-
 def run(raw_data):
     model_path = Model.get_model_path(
         model_name="app/porto_seguro_safe_driver_model.pkl")
