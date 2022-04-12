@@ -18,7 +18,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # 
 COPY ./app /code/app
-COPY ${GITHUB_WORKSPACE}/porto_seguro_safe_driver_model.pkl /code/app
+COPY /home/app/porto_seguro_safe_driver_model.pkl /code/app
 
 RUN ls app && pwd
 
