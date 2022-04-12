@@ -12,10 +12,24 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
 
+    - name: ls before
+      run: |
+        pwd
+        ls
+        tree
+      shell: bash
+
     - name: Download the Model PKL
       run: |
         az extension add -n azure-cli-ml
         az ml model download -i portodrivermodel:1 --resource-group szgroup --workspace-name szmlworkspace -t app
+      shell: bash
+
+    - name: ls after
+      run: |
+        pwd
+        ls
+        tree
       shell: bash
 
     - name: Login to Github Packages
