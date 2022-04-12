@@ -17,7 +17,7 @@ RUN ls && pwd
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # 
-COPY . /code/app
+COPY ./app /code/app
 
 RUN ls && pwd
 
