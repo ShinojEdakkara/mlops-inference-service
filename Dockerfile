@@ -9,7 +9,9 @@ WORKDIR /code
 # 
 COPY ./requirements.txt /code/requirements.txt
 
-COPY porto_seguro_safe_driver_model.pkl /code/app
+RUN ls
+
+# COPY porto_seguro_safe_driver_model.pkl /code/app
 
 # 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
