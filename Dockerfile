@@ -17,10 +17,16 @@ RUN ls && pwd
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # 
-COPY . /code/app
+COPY . /code
 # ADD porto_seguro_safe_driver_model.pkl /code/app/
 
-RUN ls app && pwd
+# Code
+# COPY ./app /var/azureml-app
+# ENV AZUREML_ENTRY_SCRIPT=main.py
+
+# # Model
+# COPY model /var/azureml-app/azureml-models
+# ENV AZUREML_MODEL_DIR=/var/azureml-app/azureml-models
 
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
