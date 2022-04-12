@@ -29,5 +29,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         tags: |
-          ghcr.io/retaildevcrews/mlops-inference:${{ github.sha }}
-        push: ${{ github.ref == 'refs/heads/main' }}
+          ghcr.io/retaildevcrews/GTrialDeploy/mlops-inference:${{ github.sha }}
+        push: true
