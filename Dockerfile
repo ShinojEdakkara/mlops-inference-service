@@ -4,15 +4,16 @@
 FROM mcr.microsoft.com/azureml/sklearn-0.24.1-ubuntu18.04-py37-cpu-inference:latest
 
 RUN ls && pwd
+
 # 
 WORKDIR /code
 
 # 
 COPY ./requirements.txt /code/requirements.txt
+COPY /model/porto_seguro_safe_driver_model.pkl /code/app
 
 RUN ls && pwd
 
-# COPY porto_seguro_safe_driver_model.pkl /code/app
 
 # 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
