@@ -49,7 +49,7 @@ def init():
 
 def run(raw_data):
     model_path = Model.get_model_path(
-        model_name="app/porto_seguro_safe_driver_model.pkl")
+        model_name="porto_seguro_safe_driver_model.pkl")
 
     model = joblib.load(model_path)
 
