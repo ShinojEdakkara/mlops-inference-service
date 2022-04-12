@@ -23,6 +23,12 @@ jobs:
         az ml model download -i portodrivermodel:1 --resource-group szgroup --workspace-name szmlworkspace -t .
       shell: bash
 
+    - name: pwd
+      run: |
+        pwd
+        ls
+      shell: bash
+
     - name: Build the tagged Docker image
       run: |
         docker build . --file Dockerfile --tag mlops:latest
