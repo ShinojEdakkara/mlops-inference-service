@@ -8,6 +8,7 @@ import joblib
 from typing import Optional
 
 from fastapi import FastAPI
+from http import HTTPStatus
 from azureml.core.model import Model
 
 app = FastAPI()
@@ -16,15 +17,20 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Welcome to Machine Leaning Predictor Service"}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/health")
+def read_item():
+    response = {
+        "message": HTTPStatus.OK.phrase,
+        "status-code": HTTPStatus.OK,
+        "data": {},
+    }
+    return response
 
 
-@app.get("/models")
+@app.get("/predict")
 def predict_score(data):
     score = run(data)
     return score
