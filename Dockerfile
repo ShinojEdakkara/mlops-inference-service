@@ -18,6 +18,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # 
 COPY ./app /code/app
+COPY /home/runner/work/mlops-inference-service/mlops-inference-service/porto_seguro_safe_driver_model.pkl /code/app
 
 RUN ls app && pwd
 
