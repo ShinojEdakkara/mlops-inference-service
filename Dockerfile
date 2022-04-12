@@ -18,9 +18,9 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # 
 COPY ./app /code/app
-COPY /home/runner/work/mlops-inference-service/mlops-inference-service/porto_seguro_safe_driver_model.pkl /code/app
+COPY ${GITHUB_WORKSPACE}/porto_seguro_safe_driver_model.pkl /code/app
 
 RUN ls app && pwd
 
-# 
+
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
