@@ -17,8 +17,8 @@ RUN ls && pwd
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # 
-COPY ./app /code/app
-ADD porto_seguro_safe_driver_model.pkl /code/app/
+COPY . /code/app
+# ADD porto_seguro_safe_driver_model.pkl /code/app/
 
 RUN ls app && pwd
 
