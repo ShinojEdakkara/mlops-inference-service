@@ -12,24 +12,11 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    - name: ls before
-      run: |
-        ls
-        pwd
-      shell: bash
-
     - name: Download the Model PKL
       run: |
         az extension add -n azure-cli-ml
         az ml model download -i portodrivermodel:1 --resource-group szgroup --workspace-name szmlworkspace -t .
         pwd
-      shell: bash
-
-    - name: ls after
-      run: |
-        pwd
-        ls
-        tree
       shell: bash
 
     - name: Login to Github Packages
@@ -43,6 +30,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         tags: |
-          ghcr.io/shinojedakkara/mlops-inference-service:${{ github.run_number }}
+          ghcr.io/shinojedakkara/mlops-inference-service:${{ github.run_attempt }}
         context: .
         push: true
